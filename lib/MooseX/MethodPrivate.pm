@@ -112,6 +112,8 @@ franck cuny E<lt>franck.cuny {at} rtgi.frE<gt>
 
 =head1 SEE ALSO
 
+Idea stolen from L<Moose::Cookbook::Meta::Recipe6>.
+
 =head1 LICENSE
 
 Copyright (c) 2009, RTGI
