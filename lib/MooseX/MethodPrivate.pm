@@ -94,6 +94,8 @@ MooseX::MethodPrivate add two new keyword for methods declaration:
 
 =head2 METHODS
 
+=over 4
+
 =item B<private>
 
 A private method is visible only in the class.
@@ -101,6 +103,8 @@ A private method is visible only in the class.
 =item B<protected>
 
 A protected method is visible in the class and any subclasses.
+
+=back
 
 =head1 AUTHOR
 
