@@ -4,11 +4,10 @@ all_from 'lib/MooseX/MethodPrivate.pm';
 
 # requires '';
 requires 'Moose';
-requires 'Test::Class';
+requires 'Carp';
 requires 'Test::Exception';
 
 tests 't/*.t';
-author_tests 'xt';
 
 build_requires 'Test::More';
 use_test_base;

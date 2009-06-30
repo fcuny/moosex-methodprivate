@@ -2,8 +2,9 @@ package MooseX::MethodPrivate;
 
 use Moose;
 use Moose::Exporter;
-our $VERSION = '0.1.0';
 use Carp qw/croak/;
+
+our $VERSION = '0.1.0';
 
 Moose::Exporter->setup_import_methods(
     with_caller => [qw( private protected )], );
@@ -47,15 +48,59 @@ __END__
 
 =head1 NAME
 
-MooseX::MethodPrivate -
+MooseX::MethodPrivate - Declare methods private or protected
 
 =head1 SYNOPSIS
 
-  use MooseX::MethodPrivate;
+    package Foo;
+    use MooseX::MethodPrivate;
+
+    private 'foo' => sub {
+        ...
+    }
+
+    protected 'bar' => sub {
+        ...
+    }
+
+    ...
+
+    my $foo = Foo->new;
+    $foo->foo; # die, can't call foo because it's a private method
+    $foo->bar; # die, can't call bar because it's a protected method
+
+    package Bar;
+    use MooseX::MethodPrivate;
+    extends qw/Foo/;
+
+    sub baz {
+        my $self = shift;
+        $self->foo; # die, can't call foo because it's a private method
+        $self->bar; # ok, can call this method because we extends Foo and
+                    # it's a protected method
+    }
 
 =head1 DESCRIPTION
 
-MooseX::MethodPrivate is
+MooseX::MethodPrivate add two new keyword for methods declaration:
+
+=over 2
+
+=item B<private>
+
+=item B<protected>
+
+=back
+
+=head2 METHODS
+
+=item B<private>
+
+A private method is visible only in the class.
+
+=item B<protected>
+
+A protected method is visible in the class and any subclasses.
 
 =head1 AUTHOR
 
@@ -65,5 +110,8 @@ franck cuny E<lt>franck.cuny {at} rtgi.frE<gt>
 
 =head1 LICENSE
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+Copyright (c) 2009, RTGI
+All rights reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself. See L<perlartistic>.
