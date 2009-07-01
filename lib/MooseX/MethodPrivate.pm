@@ -31,10 +31,9 @@ sub protected {
 
     my $body = sub {
         my $new_caller = caller();
-        my @isa        = $new_caller->meta->superclasses;
-        my @check      = grep {/$caller/} @isa;
         croak "The $caller\::$name method is protected"
-            unless ( ( scalar caller() ) eq $caller || @check );
+            unless ( ( scalar caller() ) eq $caller
+            || $new_caller->isa($caller) );
 
         goto &{$real_body};
     };
