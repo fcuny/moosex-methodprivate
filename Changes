@@ -1,4 +1,8 @@
 Revision history for Perl extension MooseX::MethodPrivate
 
+0.1.1    Thu 02 Jul 2009 07:59:40 AM CEST  
+        - remove xt
+        - add repository to META.yaml
+
 0.1.0    Mon Jun 29 18:03:15 2009
         - original version

@@ -4,7 +4,7 @@ use Moose;
 use Moose::Exporter;
 use Carp qw/croak/;
 
-our $VERSION = '0.1.0';
+our $VERSION = '0.1.1';
 
 Moose::Exporter->setup_import_methods(
     with_caller => [qw( private protected )], );
