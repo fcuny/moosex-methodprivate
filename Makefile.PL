@@ -12,5 +12,5 @@ tests 't/*.t';
 build_requires 'Test::More';
 use_test_base;
 auto_include;
-repository 'http://github.com/franckcuny/MooseX--MethodPrivate/tree/master'
+repository 'http://github.com/franckcuny/MooseX--MethodPrivate/tree/master';
 WriteAll;
